@@ -5,27 +5,40 @@
     "dev": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "start": "deno serve -A _fresh/server.js",
-    "update": "deno run -A -r jsr:@fresh/update .",
-    "preview": "deno run -A main.ts"
+    "update": "deno run -A -r jsr:@fresh/update ."
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
   "imports": {
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.60",
-    "preact": "https://esm.sh/preact@10.22.0",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
-    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
-    "preact/": "https://esm.sh/preact@10.22.0/",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1"
+    "preact": "npm:preact@^10.27.1",
+    "@preact/signals": "npm:@preact/signals@^2.3.1"
   },
   "compilerOptions": {
-    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
-    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns"
+    ],
+    "jsx": "precompile",
     "jsxImportSource": "preact",
-    "jsxPrecompileSkipElements": ["a", "img", "source", "body", "html", "head"]
-  },
-  "deploy": {
-    "org": "0x76",
-    "app": "deno-example-fresh"
+    "jsxPrecompileSkipElements": [
+      "a",
+      "img",
+      "source",
+      "body",
+      "html",
+      "head"
+    ]
   }
 }
